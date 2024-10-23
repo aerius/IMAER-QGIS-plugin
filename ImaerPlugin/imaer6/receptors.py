@@ -78,6 +78,10 @@ class Receptor(object):
         class_name = self.__class__.__name__
         elem = doc.createElement(f'imaer:{class_name}')
 
+        if self.local_id is not None:
+            id_attribute_name = class_name[0].lower() + class_name[1:] + 'Id'
+            elem.setAttribute(id_attribute_name, self.local_id)
+
         if self.identifier is not None:
             ident_elem = doc.createElement('imaer:identifier')
             nen_elem = self.identifier.to_xml_elem(doc)

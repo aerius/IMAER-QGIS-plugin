@@ -96,8 +96,8 @@ class GmlLineString(GmlGeometry):  # NEVER TESTED!!!
 
 class GmlPolygon(GmlGeometry):
 
-    def __init__(self, *, exterior=None):
-        super().__init__()
+    def __init__(self, *, epsg_id=None, gml_id=None, exterior=None):
+        super().__init__(epsg_id=epsg_id, gml_id=gml_id)
         self.exterior = exterior or []
 
     def __str__(self):
@@ -146,3 +146,9 @@ class GmlPolygon(GmlGeometry):
         result.setExteriorRing(line)
 
         return result
+
+    def from_geometry(self, geom):
+        points = geom.asPolygon()[0]
+        for point in points:
+            self.exterior.append(point.x())
+            self.exterior.append(point.y())

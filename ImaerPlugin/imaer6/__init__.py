@@ -28,6 +28,7 @@ from .roads import (
 from .buildings import Building
 from .calc_point import CalculationPoint
 from .gml import get_gml_element
+from .geometry import GmlPolygon
 from .identifier import Nen3610Id
 
-from .receptors import ReceptorPoint
+from .receptors import CalculationResult, ReceptorPoint

@@ -46,7 +46,7 @@ from ImaerPlugin.connect import (
     AeriusOpenData
 )
 
-from ImaerPlugin.imaer6 import ImaerDocument
+from ImaerPlugin.imaer6 import ImaerDocument, ReceptorPoint, CalculationResult, GmlPolygon, Nen3610Id
 from ImaerPlugin.gpkg import ImaerGpkg
 from ImaerPlugin.styles import StyleFactory
 from ImaerPlugin.gpkg import ImaerGpkgFieldFactory
@@ -529,3 +529,54 @@ class ImaerPlugin:
 
         if calc_type == 'maximum':
             self.relate_calc_results_dlg.calculate_maximum(layers, layer_name)
+
+    def export_calc_result(self, layer, fn):
+        md = self.get_imaer_calc_metadata(layer)
+        print(md)
+
+        if (not isinstance(md, dict)) or (not md['is_imaer_calc_layer']):
+            print('Not an IMAER layer')
+            return
+        
+        if not md['imaer_layer_type'] == 'receptor_hexagons':
+            print('Not hexagons')
+            return
+
+        doc = ImaerDocument()
+
+        i = 0
+        for feat in layer.getFeatures():
+            if i == 2:
+                break
+            i += 1
+
+            receptor_id = feat['receptor_id']
+            gml_id = f'CP.{receptor_id}'
+            identifier = Nen3610Id(local_id=receptor_id)
+
+            receptor = ReceptorPoint(local_id=receptor_id, identifier=identifier)
+            
+            gml_id = f'NL.IMAER.REPR.{receptor_id}'
+            polygon = GmlPolygon(epsg_id=28992, gml_id=gml_id)
+            polygon.from_geometry(feat.geometry())
+            receptor.representation = polygon
+
+            result = CalculationResult('DEPOSITION', 'NOX', feat['deposition_nox'])
+            receptor.results.append(result)
+
+            result = CalculationResult('DEPOSITION', 'NH3', feat['deposition_nh3'])
+            receptor.results.append(result)
+
+            edge_effect = feat['edge_effect']
+            if edge_effect is not None:
+                if edge_effect < 1:
+                    edge_effect = False
+                else:
+                    edge_effect = True
+            receptor.edge_effect = edge_effect
+
+            print(receptor)
+            doc.feature_members.append(receptor)
+
+        print(doc)
+        doc.to_xml_file(fn)
