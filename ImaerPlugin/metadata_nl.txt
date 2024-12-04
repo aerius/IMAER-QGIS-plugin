@@ -1,0 +1,67 @@
+# Mandatory items:
+
+[general]
+name=IMAER Plugin
+email=info@opengeogroep.nl
+author=OpenGeoGroep
+qgisMinimumVersion=3.34.0
+qgisMaximumVersion=3.99.99
+description=Plugin for handling AERIUS IMAER files
+about=This plugin is co-developed between the Dutch and British government and supports from version 3.4.1 working with IMAER files for NL AERIUS and UK APAS. IMAER files comply with the international gml standards.
+    
+    Shared functionality:
+    - Creates IMAER files for generic sources or road networks to import in AERIUS/APAS based on available GIS information.
+    - Imports IMAER files with calculation results as QGIS layers.
+    - Has algorithms to calculate sums, differences and maximums of multiple result layers.
+
+    NL AERIUS specific functionality:
+    - Provides a GUI to the AERIUS Connect API.
+
+# Also change the version number in the plugin class in imaer_plugin.py!
+version=version 3.6.0
+
+tracker=https://github.com/opengeogroep/AERIUS-QGIS-plugins/issues
+repository=https://github.com/opengeogroep/AERIUS-QGIS-plugins
+homepage=https://github.com/opengeogroep/AERIUS-QGIS-plugins
+# End of mandatory metadata
+
+# Recommended items:
+
+changelog=
+    3.6.0   (01-10-2024) Support for Connect 8, PDF extract dropped
+    3.5.1   (26-08-2024) Support for IMAER 6, Subreceptors, Time Varying Profiles, GUI enhancements, automated GUI tests, and more
+    3.4.2   (16-11-2023) Improved Plugin metadata for UK
+    3.4.1   (06-10-2023) Support for IMAER 5.1, buildings, diurnal variations and UK options
+    3.4.0   (02-08-2023) First UK (zip only) release for testing
+    3.3.1   (07-02-2023) Bug fix for enabled import calculator result button while no CRS specified
+    3.3.0   (30-01-2023) Support for Calculation Tasks and IMAER 5.1, Processing Algorithms for relating depositions (thanks Provincie Zeeland)
+    3.2.1   (13-12-2022) Fix for createDatabase() change in QGIS 3.28
+    3.2.0   (04-10-2022) Configuration options for Country and CRS; Support for UK calculator result GML
+    3.1.3   (25-05-2022) Support for edgeEffect info in IMAER 5.0
+    3.1.2   (31-01-2022) Bug fix for PDF/GML extraction + multo GML support
+    3.1.1   (25-01-2022) Bug fix in metadata: set point release to x.x.99
+    3.1.0   (25-01-2022) AERIUS Connect functionality, Calculator input generation and much more. First non experimental release
+    3.0.8   (19-04-2021) IMAER 3.1 support, difference and sum calculations on IMAER layers (thanks DLV)
+    3.0.7   (01-10-2020) Bugfix for typo in outflowDiameter
+    3.0.6   (30-09-2020) File dialog for exporting GML; Optional situation name; Bugfix for building width/height swap
+    3.0.5   (09-09-2020) Documentation button; Bugfix for not importing deposition values
+    3.0.4   (01-09-2020) Calculator Input full support for Emission Source Characteristics + Buildings
+    3.0.3   (28-08-2020) Calculator Input support for LineStrings, Polygons, CRS options, Emission Source Characteristics
+    3.0.2   (19-08-2020) Generating basic Calculator Input GML for point layers
+    3.0.1   (03-07-2020) New importer and exporter for Calculator Result
+    3.0.0   (29-05-2020) IMAER Calculator Result GML import
+
+# Tags are comma separated without spaces. (Spaces are allowed within the tag.)
+tags=imaer,aerius,calculator,connect,gml,stikstof,nitrogen,air,pollution,nl,uk,apas
+
+category=Plugins
+icon=img/icon_import_calc_result.svg
+
+# processing provider flag
+hasProcessingProvider=yes
+
+# experimental flag
+experimental=False
+
+# deprecated flag (applies to the whole plugin, not just a single version)
+deprecated=False

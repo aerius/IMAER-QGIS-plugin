@@ -1,12 +1,12 @@
 # Mandatory items:
 
 [general]
-name=IMAER Plugin
+name=APAS Plugin
 email=info@opengeogroep.nl
 author=OpenGeoGroep
 qgisMinimumVersion=3.34.0
 qgisMaximumVersion=3.99.99
-description=Plugin for handling AERIUS and UK Air Pollution Assessment Service (APAS) IMAER files
+description=Plugin for handling UK Air Pollution Assessment Service (APAS) IMAER files
 about=This plugin is co-developed between the Dutch and British government and supports from version 3.4.1 working with IMAER files for NL AERIUS and UK APAS. IMAER files comply with the international gml standards.
     
     Shared functionality:

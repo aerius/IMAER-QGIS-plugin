@@ -14,8 +14,8 @@
 # (at your option) any later version.
 ################################################################################
 
-from ImaerPlugin.imaer_plugin import ImaerPlugin
+from .imaer_plugin import ImaerPluginNl
 
 
 def classFactory(iface):
-    return ImaerPlugin(iface)
+    return ImaerPluginNl(iface)

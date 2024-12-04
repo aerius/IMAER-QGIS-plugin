@@ -6,3 +6,4 @@ demodata/*.gpkg-shm
 demodata/*.gpkg-wal
 ImaerPlugin/test/output/output_*.gml
 /ImaerPlugin/test/dev.yml
+output/

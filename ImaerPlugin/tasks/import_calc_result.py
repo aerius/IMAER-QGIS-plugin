@@ -15,7 +15,7 @@ from qgis.core import (
     QgsExpressionContextUtils,
 )
 
-from .. task_timer import TaskTimer
+# from .. task_timer import TaskTimer
 from ImaerPlugin.imaer6 import ImaerDocument
 from ImaerPlugin.gpkg import ImaerGpkg
 from ImaerPlugin.config import ui_settings
