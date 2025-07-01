@@ -97,7 +97,7 @@ def generate_gml_uk_roads(delete_layers=True):
     cfg_fn = os.path.join(test_input_dir, 'generate_gml_config_uk_roads.json')
     load_configuration_file(cfg_fn)
 
-    gml_fn = os.path.join(work_dir, 'test_uk_roads.gml')
+    gml_fn = os.path.join(test_work_dir, 'test_uk_roads.gml')
     plugin.generate_calc_input_dlg.edit_outfile.setText(gml_fn)
     plugin.generate_calc_input_dlg.generate_imaer_gml()
 
@@ -122,7 +122,7 @@ def generate_gml_uk_points_buildings(delete_layers=True):
     cfg_fn = os.path.join(test_input_dir, 'generate_gml_config_uk_points_buildings.json')
     load_configuration_file(cfg_fn)
 
-    gml_fn = os.path.join(work_dir, f'test_uk_{ln}.gml')
+    gml_fn = os.path.join(test_work_dir, f'test_uk_{ln}.gml')
     plugin.generate_calc_input_dlg.edit_outfile.setText(gml_fn)
     plugin.generate_calc_input_dlg.generate_imaer_gml()
 
@@ -142,7 +142,7 @@ def generate_gml_uk_calculation_points(delete_layers=True):
     cfg_fn = os.path.join(test_input_dir, f'generate_gml_config_uk_{ln}.json')
     load_configuration_file(cfg_fn)
 
-    gml_fn = os.path.join(work_dir, f'test_uk_{ln}.gml')
+    gml_fn = os.path.join(test_work_dir, f'test_uk_{ln}.gml')
     plugin.generate_calc_input_dlg.edit_outfile.setText(gml_fn)
     plugin.generate_calc_input_dlg.generate_imaer_gml()
 
@@ -162,7 +162,7 @@ def generate_gml_uk_points_tvp(delete_layers=True):
     cfg_fn = os.path.join(test_input_dir, 'generate_gml_config_uk_points_tvp.json')
     load_configuration_file(cfg_fn)
 
-    gml_fn = os.path.join(work_dir, f'test_uk_{ln}.gml')
+    gml_fn = os.path.join(test_work_dir, f'test_uk_{ln}.gml')
     plugin.generate_calc_input_dlg.edit_outfile.setText(gml_fn)
     plugin.generate_calc_input_dlg.generate_imaer_gml()
 

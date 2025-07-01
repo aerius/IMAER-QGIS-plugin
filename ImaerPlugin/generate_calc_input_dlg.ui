@@ -1734,10 +1734,10 @@
                  </widget>
                 </item>
                 <item row="2" column="1">
-                 <widget class="QgsFieldComboBox" name="fcb_cp_desc"/>
+                 <widget class="QgsFieldComboBox" name="fcb_cp_description"/>
                 </item>
                 <item row="2" column="0">
-                 <widget class="QLabel" name="label_cp_desc">
+                 <widget class="QLabel" name="label_cp_description">
                   <property name="text">
                    <string>description</string>
                   </property>

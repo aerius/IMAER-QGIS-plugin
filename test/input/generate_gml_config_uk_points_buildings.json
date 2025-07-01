@@ -39,7 +39,7 @@
         "fcb_bld_label": "label",
         "fcb_cp_id": "id",
         "fcb_cp_label": "label",
-        "fcb_cp_desc": "description",
+        "fcb_cp_description": "description",
         "fcb_cp_height": "height",
         "fcb_cp_category": "category",
         "fcb_cp_local_fraction_no2": "fraction_no2",

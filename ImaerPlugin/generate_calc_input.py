@@ -878,13 +878,14 @@ class GenerateCalcInputDialog(QDialog, FORM_CLASS):
         cp.label = self.get_feature_value(self.fcb_cp_label, feat)
         cp.height = self.get_feature_value(self.fcb_cp_height, feat)
         cp.assessment_category = self.get_feature_value(self.fcb_cp_category, feat)
+        cp.description = self.get_feature_value(self.fcb_cp_description, feat)
         if country == 'UK':
             cp.road_local_fraction_no2 = self.get_feature_value(self.fcb_cp_local_fraction_no2, feat)
         
         if country == 'UK' and self.group_cp_er.isChecked():
             er = EntityReference()
             er.entity_type = self.get_feature_value(self.fcb_cp_er_type, feat)
-            er.description = self.get_feature_value(self.fcb_cp_desc, feat)
+            er.description = self.get_feature_value(self.fcb_cp_er_description, feat)
 
             cl = self.get_feature_value(self.fcb_cp_er_cl_nox, feat)
             if cl is not None:
@@ -895,6 +896,7 @@ class GenerateCalcInputDialog(QDialog, FORM_CLASS):
             cl = self.get_feature_value(self.fcb_cp_er_cl_load, feat)
             if cl is not None:
                 er.critical_levels.append(CriticalLevel('DEPOSITION', 'NOXNH3', cl))
+        
             cp.entity_reference = er
 
         return cp
